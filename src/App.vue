@@ -1,12 +1,14 @@
 <template>
     <div id="app">
-        <router-view/>
+        <dashboard-layout/>
     </div>
 </template>
 <script>
+import DashboardLayout from "./layout/DashboardLayout";
 export default {
   name: 'App',
   components: {
+      DashboardLayout
   }
 }
 </script>

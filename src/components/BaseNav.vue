@@ -4,21 +4,44 @@
             <img alt="Image placeholder" src="img/tbsp.jpg">
         </span>
         <div class="collapse navbar-collapse ml-3 " id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase" href="#" style="font-size: medium"><b> Kimchi </b> </a>
+                    <router-link to="kimchi">
+                        <a class="nav-link text-uppercase" style="font-size: medium"><b> Kimchi </b> </a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase" href="#" style="font-size: medium"><b> Empanda </b></a>
+                    <div class="nav-link dropdown text-uppercase font-weight-bold text-white" style="font-size: medium">
+                        <span>Empanada</span>
+                        <div class="dropdown-content">
+                            <router-link to="empanada">
+                                <div class="text-warning">Chicken</div>
+                            </router-link>
+                            <router-link to="ham-and-cheese">
+                                <div class="text-warning">Ham & Cheese</div>
+                            </router-link>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase" href="#" style="font-size: medium"><b> Kimbap </b></a>
+                    <router-link to="kimbap">
+                        <a class="nav-link text-uppercase" ><b> Kimbap </b></a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase" href="#" style="font-size: medium"><b> Chicken Wings </b></a>
+                    <router-link to="chicken-wings">
+                        <a class="nav-link text-uppercase" ><b> Chicken Wings </b></a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase disabled" href="#" style="font-size: medium"><b> Samgyupsal </b></a>
+                    <span class="nav-link text-uppercase text-white" id="sagyupsal" style="font-size: medium">
+                        <b>
+                            Samgyupsal
+                        </b>
+                    </span>
+                    <b-tooltip variant="warning" placement="right" target="sagyupsal" triggers="hover">
+                        Coming Soon!
+                    </b-tooltip>
                 </li>
             </ul>
         </div>
@@ -38,10 +61,41 @@
     export default {
         name: "base-nav",
         // components: {BaseInput}
+        data() {
+            return {
+            }
+        }
     }
 </script>
 <style>
-    .navbar-link:hover {
-        background: rgba(79, 31, 3, 0.8);
+    .navbar ul li a b{
+        font-size: medium;
+        color: white;
+        padding: 25px;
+        border-radius: 25px;
+    }
+    .navbar ul li a b:hover {
+        background-color: white;
+        color: #ffc107;
+    }
+    .drop:hover {
+        font-size: medium;
+        color: white;
+        padding: 25px;
+        border-radius: 25px;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        border-radius: 10px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
 </style>
